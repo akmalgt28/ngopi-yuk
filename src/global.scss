@@ -1,0 +1,212 @@
+/*
+ * App Global CSS - Ngopi Yuk
+ * Theme: The Golden Crema (Premium Dark & Elegant)
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Dark Mode - Always */
+@import "@ionic/angular/css/palettes/dark.always.css";
+
+:root {
+  --ion-background-color: #121212;
+  --ion-background-color-rgb: 18, 18, 18;
+  
+  /* Text: Pure White */
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255, 255, 255;
+
+  /* Primary: Soft Ochre (Untuk Tombol Utama & Grafik) */
+  --ion-color-primary: #d4a373;
+  --ion-color-primary-rgb: 212, 163, 115;
+  --ion-color-primary-contrast: #121212;
+  --ion-color-primary-contrast-rgb: 18, 18, 18;
+  --ion-color-primary-shade: #bb8f65;
+  --ion-color-primary-tint: #d8ac81;
+
+  /* Secondary/Accent: Cream (Untuk Teks Sekunder/Garis) */
+  --ion-color-secondary: #faedcd;
+  --ion-color-secondary-rgb: 250, 237, 205;
+  --ion-color-secondary-contrast: #121212;
+  --ion-color-secondary-contrast-rgb: 18, 18, 18;
+  --ion-color-secondary-shade: #dcd1b4;
+  --ion-color-secondary-tint: #fbf0d2;
+  --ion-color-secondary-very-tint: #fffaed;
+
+  /* Tertiary: Ionic Default */
+  --ion-color-tertiary: #b388ff;
+  --ion-color-tertiary-rgb: 179, 136, 255;
+  --ion-color-tertiary-contrast: #121212;
+  --ion-color-tertiary-contrast-rgb: 18, 18, 18;
+  --ion-color-tertiary-shade: #9e78e0;
+  --ion-color-tertiary-tint: #bb94ff;
+
+  /* Success (Hijau) */
+  --ion-color-success: #66bb6a;
+  --ion-color-success-rgb: 102, 187, 106;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #5aa55d;
+  --ion-color-success-tint: #75c279;
+
+  /* Warning (Kuning) */
+  --ion-color-warning: #ffa726;
+  --ion-color-warning-rgb: 255, 167, 38;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e09321;
+  --ion-color-warning-tint: #ffb03c;
+
+  /* Danger (Merah) */
+  --ion-color-danger: #ef5350;
+  --ion-color-danger-rgb: 239, 83, 80;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d24946;
+  --ion-color-danger-tint: #f16462;
+
+  --ion-toolbar-background: transparent;
+  --ion-tab-bar-background: #121212;
+  --ion-tab-bar-color: rgba(250, 237, 205, 0.5); /* Cream pudar untuk menu yg tidak dipilih */
+  --ion-tab-bar-color-selected: #d4a373; /* Soft Ochre saat dipilih */
+  --ion-item-background: transparent;
+
+  --ion-card-background: #1e1e1e;
+  --ion-card-background-rgb: 30, 30, 30;
+  
+  --ion-border-color-subtle: rgba(250, 237, 205, 0.05);
+}
+
+/* Global Font */
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+ion-content {
+  --background: #121212;
+}
+
+/* Tab Bar Styling */
+ion-tab-bar {
+  --background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(250, 237, 205, 0.1); /* Garis pemisah warna Cream transparan */
+  padding-top: 4px;
+  padding-bottom: env(safe-area-inset-bottom);
+  height: 65px;
+}
+
+ion-tab-button {
+  --color: rgba(250, 237, 205, 0.5);
+  --color-selected: #d4a373;
+
+  ion-icon {
+    font-size: 1.4rem;
+    transition: 0.3s all ease-in-out;
+  }
+
+  ion-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  &.tab-selected {
+    ion-icon {
+      filter: drop-shadow(0 0 8px rgba(212, 163, 115, 0.4)); /* Glow effect pakai Soft Ochre */
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* Alert & Toast Styling */
+ion-alert {
+  --background: #1a1a1a; /* Elevated Black */
+  --backdrop-opacity: 0.6;
+
+  .alert-title {
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff; /* Judul Pure White */
+  }
+
+  .alert-message {
+    font-family: 'Outfit', sans-serif;
+    color: #faedcd; /* Pesan pakai Cream */
+  }
+
+  .alert-button {
+    font-family: 'Outfit', sans-serif;
+    color: #d4a373; /* Tombol Soft Ochre */
+    font-weight: bold;
+  }
+}
+
+ion-toast {
+  --background: #1a1a1a;
+  --color: #faedcd;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Action Sheet */
+ion-action-sheet {
+  --background: #1a1a1a;
+  --color: #ffffff;
+
+  .action-sheet-button {
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff;
+  }
+}
+
+/* Select Popover */
+ion-select-popover {
+  --background: #1a1a1a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 163, 115, 0.3);
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease-out;
+}

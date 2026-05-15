@@ -1,0 +1,139 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onClose()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Tambah Kopi</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onSubmit()" [disabled]="!selectedCoffeeType" fill="solid" shape="round" class="save-btn">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        Simpan
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding form-content">
+  <form [formGroup]="coffeeForm" *ngIf="coffeeForm">
+    <div class="form-section">
+      <div class="form-section-title">Waktu & Tanggal</div>
+      <div class="form-row">
+        <div class="custom-input-wrapper">
+          <label class="custom-label">Tanggal</label>
+          <input type="date" class="custom-input" [formControl]="$any(coffeeForm.get('date'))" />
+        </div>
+        <div class="custom-input-wrapper">
+          <label class="custom-label">Waktu</label>
+          <input type="time" class="custom-input" [formControl]="$any(coffeeForm.get('time'))" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Jenis Kopi</div>
+      <div class="custom-input-wrapper">
+        <label class="custom-label">Pilih Kopi</label>
+        <select class="custom-input custom-select" formControlName="coffeeTypeId">
+          <option value="" disabled>Pilih jenis kopi...</option>
+          <option *ngFor="let type of coffeeTypes" [value]="type.id">{{ type.name }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Suhu</div>
+      <ion-segment [formControl]="$any(coffeeForm.get('temperature'))" mode="ios">
+        <ion-segment-button value="hot">
+          <ion-icon name="flame" style="margin-bottom: 2px; font-size: 1.1rem;"></ion-icon>Hot
+        </ion-segment-button>
+        <ion-segment-button value="iced">
+          <ion-icon name="snow" style="margin-bottom: 2px; font-size: 1.1rem;"></ion-icon>Iced
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div class="form-section mt-4">
+      <div class="form-section-title">Ukuran</div>
+      <ion-segment [formControl]="$any(coffeeForm.get('size'))" mode="ios" class="size-segment">
+        <ion-segment-button value="small">
+          <ion-label>S</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="medium">
+          <ion-label>M</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="large">
+          <ion-label>L</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div class="form-section mt-4">
+      <div class="form-section-title">Kustumisasi</div>
+      <div class="custom-input-wrapper">
+        <label class="custom-label">Tingkat Gula</label>
+        <select class="custom-input custom-select" formControlName="sugarLevel">
+          <option value="normal">Normal</option>
+          <option value="less">Less Sugar (50%)</option>
+          <option value="no_sugar">No Sugar (0%)</option>
+        </select>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Extra Shot Espresso</span>
+        <ion-toggle formControlName="extraShot"></ion-toggle>
+      </div>
+    </div>
+
+    <div class="form-section mt-4">
+      <div class="form-section-title">Harga</div>
+      <div class="custom-input-wrapper">
+        <label class="custom-label">Harga (Rp)</label>
+        <input type="number" class="custom-input" formControlName="price" placeholder="25000">
+      </div>
+    </div>
+
+    <div class="nutrition-wrapper" *ngIf="selectedCoffeeType">
+      <div class="form-section-title mt-4">Informasi Nutrisi</div>
+      <div class="nutrition-grid">
+        <div class="nutrition-card">
+          <span class="nutrition-value">{{ calcCoffeeGrams }}g</span>
+          <span class="nutrition-label">Kopi</span>
+        </div>
+        <div class="nutrition-card">
+          <span class="nutrition-value">{{ calcCaffeineMg }}mg</span>
+          <span class="nutrition-label">Kafein</span>
+        </div>
+        <div class="nutrition-card">
+          <span class="nutrition-value">{{ calcSugarGrams }}g</span>
+          <span class="nutrition-label">Gula</span>
+        </div>
+      </div>
+      <p class="calc-note">* Nilai dihitung otomatis. Kamu bisa mengedit di bawah</p>
+
+      <div class="form-row triple">
+        <div class="custom-input-wrapper">
+          <label class="custom-label">Kopi (g)</label>
+          <input type="number" class="custom-input compact" formControlName="coffeeGrams" />
+        </div>
+        <div class="custom-input-wrapper">
+          <label class="custom-label">Kafein (mg)</label>
+          <input type="number" class="custom-input compact" formControlName="caffeineMg" />
+        </div>
+        <div class="custom-input-wrapper">
+          <label class="custom-label">Gula (g)</label>
+          <input type="number" class="custom-input compact" formControlName="sugarGrams" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section mt-4 mb-4">
+      <div class="form-section-title">Catatan (Optional)</div>
+      <div class="custom-input-wrapper">
+        <textarea class="custom-input custom-textarea" formControlName="notes" placeholder="Nama coffee shop, ulasan rasa..." rows="2"></textarea>
+      </div>
+    </div>
+
+    <div style="height: 40px;"></div>
+  </form>
+</ion-content>

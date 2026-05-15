@@ -1,0 +1,404 @@
+ion-header {
+  box-shadow: none;
+  border: none;
+}
+
+ion-header ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-width: 0;
+  --min-height: 0;
+}
+
+.page-top-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--ion-color-secondary-very-tint);
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 8px;
+    
+    ion-icon {
+        margin-right: 10px;
+        font-size: 1.6rem;
+    }
+}
+
+ion-content {
+    --background: var(--ion-background-color)
+}
+
+.streak-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    margin: 0 0 16px;
+    border-radius: 20px;
+    background: var(--ion-card-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ion-border-color-subtle);
+    transition: all 0.3s ease;
+
+    &.active .streak-icon {
+        animation: pulse 2s infinite;
+    }
+
+    .streak-icon {
+        font-size: 2.5rem;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: var(--ion-color-primary);
+
+        ion-icon {
+            font-size: 2rem;
+            color: #fff;
+        }
+    }
+
+    .streak-info {
+        display: flex;
+        flex-direction: column;
+
+        .streak-count {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--ion-color-primary);
+            line-height: 1;
+        }
+
+        .streak-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            color: var(--ion-color-secondary-very-tint);
+            font-weight: 500;
+        }
+    }
+
+    .streak-status {
+        margin-left: auto;
+    }
+
+    .streak-status ion-chip {
+        --background: rgba(187, 143, 101, 0.15); 
+        --color: var(--ion-color-secondary);
+        font-weight: 600;
+        border: 1px solid rgba(187, 143, 101, 0.1);
+    }
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0 12px;
+
+    h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ion-color-secondary-very-tint);
+    }
+
+    ion-icon {
+        color: var(--ion-color-secondary-very-tint);
+        font-size: 1.2rem;
+    }
+
+    .calendar-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .month-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            color: var(--ion-color-secondary-very-tint);
+            font-weight: 500;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        ion-button {
+            --color: var(--ion-color-primary);
+            --padding-start: 4px;
+            --padding-end: 4px;
+        }
+    }
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.summary-card {
+    padding: 16px;
+    border-radius: 16px;
+    background: var(--ion-card-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ion-border-color-subtle);
+
+    &:active {
+        transform: scale(0.97);
+    }
+
+    .summary-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        ion-icon {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+    }
+
+    .summary-value {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+
+        small {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--ion-color-secondary-very-tint);
+            margin-left: 2px;
+        }
+
+        &.money {
+            font-size: 1.1rem;
+        }
+    }
+
+    .summary-label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.75rem;
+        color: var(--ion-color-secondary-very-tint);
+        font-weight: 500;
+        margin-top: 4px;
+    }
+
+    .custom-progress {
+        margin-top: 8px;
+        border-radius: 4px;
+        --buffer-background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+    }
+
+    .progress-caffeine {
+        --progress-background: var(--ion-color-primary);
+    }
+
+    .progress-sugar {
+        --progress-background: var(--ion-color-secondary);
+    }
+
+    .custom-progress.warning {
+        --progress-background: #e57373;
+    }
+
+    &.cups .summary-icon {
+        background: var(--ion-color-primary);
+    }
+
+    &.caffeine .summary-icon {
+        background: var(--ion-color-primary);
+    }
+
+    &.sugar .summary-icon {
+        background: var(--ion-color-primary);
+    }
+
+    &.spending .summary-icon {
+        background: var(--ion-color-primary);
+    }
+}
+
+.calendar-container {
+    padding: 16px;
+    border-radius: 20px;
+    background: var(--ion-card-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ion-border-color-subtle);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+
+    .weekday {
+        text-align: center;
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--ion-color-secondary-very-tint);
+        padding: 4px 0;
+    }
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-days {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ion-color-secondary-tint);
+    transition: all 0.2s ease;
+
+    &.empty {
+        visibility: hidden;
+    }
+
+    &.has-entry {
+        background: rgba(212, 163, 115, 0.2);
+        color: var(--ion-color-primary);
+        font-weight: 600;
+    }
+
+    &.today {
+        border: 2px solid var(--ion-color-secondary);
+        font-weight: 700;
+    }
+
+    &.has-entry.today {
+        background: rgba(212, 163, 115, 0.2);
+        color: #fff
+    }
+
+    .entry-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--ion-color-primary);
+        position: absolute;
+        bottom: 4px;
+    }
+}
+
+.entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.entry-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: var(--ion-card-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ion-border-color-subtle);
+    transition: transform 0.2s ease;
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    .entry-icon {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: var(--ion-card-background);
+    }
+
+    .entry-details {
+        flex: 1;
+
+        .entry-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        .entry-meta {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            color: var(--ion-color-secondary-very-tint);
+            margin-top: 2px;
+        }
+    }
+
+    .entry-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .entry-caffeine {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--ion-color-primary);
+        }
+
+        .entry-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.7rem;
+            color: var(--ion-color-secondary);
+        }
+    }
+
+
+}
+
+.add-cup-fab {
+    --backgroud: var(--ion-color-primary);
+    --color: #ffffff
+}
+
+ion-fab[vertical="bottom"] {
+    bottom: 100px;
+}
+
+ion-fab-button {
+    --background: var(--ion-color-primary);
+    --color: #fff;
+    width: 60px;
+    height: 60px;
+
+    ion-icon {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes warningPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 82, 82, 0); }
+  50% { box-shadow: 0 0 16px rgba(255, 82, 82, 0.2); }
+}

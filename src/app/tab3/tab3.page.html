@@ -1,0 +1,124 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="page-top-title">
+        <ion-icon name="settings-outline"></ion-icon> Pengaturan
+    </div>
+
+    <div class="settings-section">
+        <div class="section-title">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            <span>Target Harian</span>
+        </div>
+        <div class="section-description">Atur batas maksimal harian. Peringatan akan muncul saat mendekati batas.</div>
+
+        <div class="settings-card">
+            <div class="setting-item">
+                <div class="setting-label">
+                    <ion-icon name="flash-outline" class="setting-emoji"></ion-icon>
+                    <div>
+                        <div class="setting-name">Batas Kafein</div>
+                        <div class="setting-hint">Rekomendasi: 400mg/hari</div>
+                    </div>
+                </div>
+                <div class="setting-input">
+                    <ion-input type="number" [(ngModel)]="settings.dailyCaffeineLimit" class="number-input"></ion-input>
+                    <span class="input-unit">mg</span>
+                </div>
+            </div>
+
+            <div class="setting-divider"></div>
+
+            <div class="setting-item">
+                <div class="setting-label">
+                    <ion-icon name="water-outline" class="setting-emoji"></ion-icon>
+                    <div>
+                        <div class="setting-name">Batas Gula</div>
+                        <div class="setting-hint">Rekomendasi: 50g/hari</div>
+                    </div>
+                </div>
+                <div class="setting-input">
+                    <ion-input type="number" [(ngModel)]="settings.dailySugarLimit" class="number-input"></ion-input>
+                    <span class="input-unit">gram</span>
+                </div>
+            </div>
+        </div>
+
+        <ion-button expand="block" (click)="saveSettings()" class="save-btn">
+            <ion-icon name="save-outline" slot="start"></ion-icon> Simpan Pengaturan
+        </ion-button>
+    </div>
+
+    <div class="settings-section">
+        <div class="section-title">
+            <ion-icon name="shield"></ion-icon>
+            <span>Manajemen Data</span>
+        </div>
+        <div class="section-description">Backup dan restore data kopimu dalam format JSON.</div>
+
+        <div class="settings-card">
+            <ion-button expand="block" fill="outline" (click)="exportData()" class="data-btn export">
+                <ion-icon name="download-outline" slot="start"></ion-icon> Export
+            </ion-button>
+
+            <ion-button expand="block" fill="outline" (click)="importData()" class="data-btn import">
+                <ion-icon name="cloud-upload-outline" slot="start"></ion-icon> Import
+            </ion-button>
+
+            <div class="setting-divider"></div>
+
+            <ion-button expand="block" fill="clear" (click)="clearAllData()" class="data-btn danger">
+                Hapus Semua Data
+            </ion-button>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <div class="section-title">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>Tentang Aplikasi</span>
+        </div>
+
+        <div class="settings-card app-info">
+            <div class="app-logo">
+                <img src="assets\images\logo.png" alt="Ngopi Yuk">
+            </div>
+            <div class="app-name">Ngopi Yuk</div>
+            <div class="app-version">Versi {{ appVersion }}</div>
+            <div class="app-desc">Lacak konsumsi kopi harianmu dengan mudah dan menyenangkan.</div>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <div class="section-title">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span>Legal & Kebijakan</span>
+        </div>
+
+        <div class="settings-card">
+            <div class="legal-item" (click)="openPrivacyPolicy()">
+                <div class="legal-icon"><ion-icon name="lock-closed-outline"></ion-icon></div>
+                <div class="legal-text">
+                    <div class="legal-name">Kebijakan Privasi</div>
+                    <div class="legal-hint">Privacy Policy</div>
+                </div>
+                <ion-icon name="open-outline" class="legal-arrow"></ion-icon>
+                
+            </div>
+            <div class="setting-divider"></div>
+
+            <div class="legal-item" (click)="openTerms()">
+                <div class="legal-icon"><ion-icon name="document-text-outline"></ion-icon></div>
+                <div class="legal-text">
+                    <div class="legal-name">Syarat & Ketentuan</div>
+                    <div class="legal-hint">Terms of Use</div>
+                </div>
+                <ion-icon name="open-outline" class="legal-arrow"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+</ion-content>

@@ -1,0 +1,121 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="page-top-title">
+        <ion-icon name="cafe"></ion-icon> Coffe Tracker
+    </div>
+
+    <div class="streak-section" [class.active]="streak > 0">
+        <div class="streak-icon">
+            <ion-icon name="flame"></ion-icon>
+        </div>
+        <div class="streak-info">
+            <span class="streak-count">{{ streak }}</span>
+            <span class="streak-label">Hari Streak</span>
+        </div>
+        <div class="streak-status" *ngIf="!hasEntryToday">
+            <ion-chip>
+                <ion-label>Belum catat hari ini!</ion-label>
+            </ion-chip>
+        </div>
+        <div class="streak-status" *ngIf="hasEntryToday">
+            <ion-chip color="success">
+                <ion-label>Sudah catat</ion-label>
+            </ion-chip>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <h2>Ringkkasan Hari Ini</h2>
+    </div>
+
+    <div class="summary-grid">
+        <div class="summary-card cups">
+            <div class="summary-icon"><ion-icon name="cafe"></ion-icon></div>
+            <div class="summary-value">{{ todaySummary.totalCups }}</div>
+            <div class="summary-label">Cup</div>
+        </div>
+
+        <div class="summary-card caffeine" [class.warning]="isCaffeineWarning">
+            <div class="summary-icon"><ion-icon name="flash"></ion-icon></div>
+            <div class="summary-value">{{ todaySummary.totalCaffeine }}<small>mg</small></div>
+            <div class="summary-label">Kafein</div>
+            <ion-progress-bar class="custom-progress progress-caffeine" [value]="caffeinePercentage" [class.warning]="isCaffeineWarning">
+            </ion-progress-bar>
+        </div>
+
+        <div class="summary-card sugar" [class.warning]="isSugarWarning">
+            <div class="summary-icon"><ion-icon name="water"></ion-icon></div>
+            <div class="summary-value">{{ todaySummary.totalSugar }}<small>g</small></div>
+            <div class="summary-label">Gula</div>
+            <ion-progress-bar class="custom-progress progress-sugar" [value]="sugarPercentage" [class.warning]="isSugarWarning">
+            </ion-progress-bar>
+        </div>
+
+        <div class="summary-card spending">
+            <div class="summary-icon">
+                <ion-icon name="wallet"></ion-icon>
+            </div>
+            <div class="summary-value money">{{ formatCurrency(todaySummary.totalSpent) }}</div>
+            <div class="summary-label">Pengeluaran</div>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <h2>Kalender</h2>
+        <div class="calendar-nav">
+            <ion-button fill="clear" size="small" (click)="prevMonth()">
+                <ion-icon name="chevron-back" slot="icon-only"></ion-icon>
+            </ion-button>
+            <span class="month-label">{{ monthLabel }}</span>
+            <ion-button fill="clear" size="small" (click)="nextMonth()">
+                <ion-icon name="chevron-forward" slot="icon-only"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-weekdays">
+            <div class="weekday" *ngFor="let day of weekDays">{{ day }}</div>
+        </div>
+        <div class="calendar-grid">
+            <div *ngFor="let day of calendarDays" class="calendar-days" [class.empty]="day.isEmpty" [class.has-entry]="day.hasEntry" [class.today]="day.isToday">
+                <span *ngIf="!day.isEmpty">{{ day.date }}</span>
+                <div class="entry-dot" *ngIf="day.hasEntry"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header" *ngIf="todaySummary.entries.length > 0">
+        <h2>Kopi Hari Ini</h2>
+    </div>
+    <div class="entry-list" *ngIf="todaySummary.entries.length > 0">
+        <div class="entry-item" *ngFor="let entry of todaySummary.entries">
+            <div class="entry-icon">
+                <ion-icon name="cafe"></ion-icon>
+            </div>
+            <div class="entry-details">
+                <div class="entry-name">{{ entry.coffeeTypeName }}</div>
+                <div class="entry-meta">
+                    <ion-icon [name]="entry.temperature === 'hot' ? 'flame' : 'snow'" style="font-size: 0.85em; transform: translateY(1.5px); margin-right: 2px;"></ion-icon>
+                    {{ entry.temperature === 'hot' ? 'Hot' : 'Iced' }} · {{ entry.size | titlecase }}
+                    <span *ngIf="entry.extraShot"> · +Shot</span>
+                </div>
+            </div>
+            <div class="entry-stats">
+                <span class="entry-caffeine">{{ entry.caffeineMg }}mg</span>
+                <span class="entry-price">{{ formatCurrency(entry.price) }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button (click)="openAddCup()" id="add-cup-btn">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

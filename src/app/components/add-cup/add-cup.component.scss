@@ -1,0 +1,200 @@
+ion-header ion-toolbar {
+    --background: var(--ion-color-primary);
+    --border-width: 0;
+    --color: var(--ion-color-secondary-very-tint);
+}
+
+ion-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+.save-btn {
+    --background: var(--ion-color-secondary);
+    --border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    --padding-start: 16px;
+    --padding-end: 16px;
+}
+
+.form-content {
+    --background: var(--ion-background-color);
+}
+
+.form-section {
+    margin-bottom: 22px;
+}
+
+.form-section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9;
+    font-weight: 600;
+    color: var(--ion-color-primary-tint);
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+
+.custom-input-wrapper {
+    margin-bottom: 10px;
+
+    .custom-label {
+        display: block;
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--ion-color-secondary);
+        margin-bottom: 6px;
+        padding-left: 4px;
+    }
+}
+
+.custom-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--ion-border-color-subtle);
+    background: var(--ion-card-background);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+        border-color: var(--ion-color-primary);
+    }
+
+    &::placeholder {
+        color: var(--ion-color-secondary);
+        opacity: 0.7;
+    }
+
+    &.compact {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+}
+
+.custom-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4a373' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+
+    option {
+        background: var(--ion-card-background);
+        padding: 8px;
+    }
+}
+
+.custom-textarea {
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.5;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+
+    .custom-input-wrapper {
+        flex: 1;
+    }
+
+    &.triple {
+        .custom-input-wrapper {
+            flex: 1;
+        }
+    }
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: var(--ion-card-background);
+    border: 1px solid var(--ion-border-color-subtle);
+
+    .toggle-label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    ion-toggle {
+        --track-background: rgba(250, 237, 205, 0.3);
+        --track-background-checked: var(--ion-color-primary);
+        --handle-background: #fff;
+        --handle-background-checked: #fff;
+    }
+}
+
+ion-segment {
+    --background: var(--ion-card-background);
+    border-radius: 14px;
+    border: 1px solid var(--ion-border-color-subtle);
+
+    ion-segment-button {
+        --indicator-color: var(--ion-color-primary);
+        --color: var(--ion-color-secondary);
+        --color-checked: #fff;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        --border-radius: 12px;
+        min-height: 42px;
+    }
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.nutrition-card {
+    padding: 14px 8px;
+    border-radius: 14px;
+    background: rgba(250, 237, 205, 0.15);
+    border: 1px solid rgba(250, 237, 205, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    .nutrition-value {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--ion-color-primary);
+    }
+
+    .nutrition-label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.7rem;
+        color: var(--ion-color-secondary-very-tint);
+        font-weight: 500;
+    }
+}
+
+.calc-note {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    color: var(--ion-color-secondary-very-tint);
+    margin: 0 0 10px 4x;
+}

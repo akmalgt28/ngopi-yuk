@@ -1,0 +1,252 @@
+ion-header {
+  box-shadow: none;
+  border: none;
+}
+
+ion-header ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-width: 0;
+  --min-height: 0;
+}
+
+.page-top-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--ion-color-secondary-very-tint);
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 8px;
+    
+    ion-icon {
+        margin-right: 10px;
+        font-size: 1.6rem;
+    }
+}
+
+ion-content {
+    --background: var(--ion-background-color)
+}
+
+.summary-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.period-card {
+    flex: 1;
+    padding: 14px;
+    border-radius: 18px;
+    background: var(--ion-card-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ion-border-color-subtle);
+
+    .period-label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--ion-color-secondary-very-tint);
+        margin-bottom: 10px;
+    }
+
+    .period-stats {
+        display: flex;
+        gap: 8px;
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            .stat-value {
+                font-family: 'Outfit', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1.2;
+
+                small {
+                    font-size: 0.6rem;
+                    color: var(--ion-color-secondary);
+                }
+            }
+
+            .stat-label {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.6rem;
+                color: var(--ion-color-secondary);
+                font-weight: 500;
+            }
+        }
+    }
+
+    .period-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding-top: 8px;
+        border-top: 1px solid var(--ion-border-color-subtle);
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.7rem;
+        color: var(--ion-color-primary);
+        font-weight: 600;
+
+        .avg {
+            color: var(--ion-color-secondary-very-tint);
+            font-weight: 600;
+        }
+    }
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0 12px;
+
+    h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ion-color-secondary-very-tint);
+        margin: 0;
+    }
+
+    .month-filter {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.8rem;
+        color: var(--ion-color-primary);
+        --placeholder-color: var(--ion-color-secondary);
+    }
+}
+
+.chart-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+ion-segment {
+    --background: var(--ion-card-background);
+    border-radius: 12px;
+    border: 1px solid var(--ion-border-color-subtle);
+
+    ion-segment-button {
+        --indicator-color: var(--ion-color-primary);
+        --color: var(--ion-color-secondary-very-tint);
+        --color-checked: var(--ion-color-primary);
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        --border-radius: 10px;
+        min-height: 36px;
+    }
+}
+
+.chart-container {
+    padding: 16px;
+    border-radius: 18px;
+    background: var(--ion-card-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ion-border-color-subtle);
+    height: 250px;
+}
+    .history-list {
+        ion-list {
+            background: transparent;
+            padding: 0;
+        }
+
+        .history-item {
+            --background: var(--ion-card-background);
+            --border-radius: 14px;
+            margin-bottom: 8px;
+            border: 1px solid var(--ion-border-color-subtle);
+            border-radius: 14px;
+            --padding-start: 12px;
+            --inner-padding-end: 12px;
+            --min-height: 70px;
+
+            .history-icon {
+                font-size: 1.3rem;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                background: rgba(212, 163, 115, 0.2);
+                margin-right: 10px;
+            }
+
+            ion-label {
+                h3 {
+                    font-family: 'Outfit', sans-serif;
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                    color: #fff !important;
+                }
+
+                p {
+                    font-family: 'Outfit', sans-serif;
+                    font-size: 0.7rem;
+                    color: var(--ion-color-secondary-very-tint) !important;
+                    margin-top: 2px;
+                }
+
+                .entry-detail {
+                    font-size: 0.7rem;
+                    color: var(--ion-color-secondary-very-tint) !important;
+                }
+            }
+
+            .history-stats {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 4px;
+
+                ion-badge {
+                    font-family: 'Outfit', sans-serif;
+                    font-size: 0.7rem;
+                    --padding-start: 8px;
+                    --padding-end: 8px;
+                }
+
+                .history-price {
+                    font-family: 'Outfit', sans-serif;
+                    font-size: 0.65rem;
+                    color: var(--ion-color-secondary-very-tint);
+                }
+            }
+        }
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--ion-color-secondary-very-tint);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .empty-sub {
+            font-size: 0.85rem;
+            color: var(--ion-color-secondary-very-tint);
+            font-weight: 400;
+            margin-top: 4px;
+        }
+    }

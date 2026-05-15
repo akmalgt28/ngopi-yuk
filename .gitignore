@@ -1,0 +1,82 @@
+# ==============================================================================
+# IONIC & CAPACITOR SPECIFIC
+# ==============================================================================
+.ionic
+www/
+/platforms
+/plugins
+/capacitor.config.json.ts
+/capacitor.config.ts.js
+
+# Abaikan build artifacts Android
+/android/boot
+/android/build
+/android/app/build
+/android/.gradle
+/android/app/src/main/assets/public
+/android/app/src/main/assets/capacitor.config.json
+/android/app/src/main/assets/capacitor.plugins.json
+
+# Abaikan file lokal IDE Android Studio
+/android/.idea
+/android/*.iml
+/android/local.properties
+
+# ==============================================================================
+# BUILD & COMPILED OUTPUT
+# ==============================================================================
+/dist
+/.sourcemaps
+/.versions
+/coverage
+/.angular
+/.nx
+/tmp
+/out-tsc
+/bazel-out
+
+# ==============================================================================
+# DEPENDENCIES
+# ==============================================================================
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# ==============================================================================
+# IDEs & EDITORS
+# ==============================================================================
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# ==============================================================================
+# SYSTEM & MISC
+# ==============================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.log
+*~
+*.sw[mnpcod]
+
+# ==============================================================================
+# SECURITY (IMPORTANT)
+# ==============================================================================
+# Jangan pernah commit file kunci atau environment
+*.jks
+*.keystore
+*.p12
+*.pem
+.env
+.env.*

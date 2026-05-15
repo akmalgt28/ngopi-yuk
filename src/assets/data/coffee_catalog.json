@@ -1,0 +1,102 @@
+{
+  "coffee_types": [
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "americano",
+      "name": "Americano",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "latte",
+      "name": "Caffe Latte",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "cappuccino",
+      "name": "Cappuccino",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "spanish_latte",
+      "name": "Spanish Latte",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 25
+    },
+    {
+      "id": "mocha",
+      "name": "Caffe Mocha",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 20
+    },
+    {
+      "id": "macchiato",
+      "name": "Macchiato",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 5
+    },
+    {
+      "id": "flat_white",
+      "name": "Flat White",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "affogato",
+      "name": "Affogato",
+      "base_coffee_grams": 18,
+      "base_caffeine_mg": 63,
+      "base_sugar_grams": 15
+    },
+    {
+      "id": "cold_brew",
+      "name": "Cold Brew",
+      "base_coffee_grams": 22,
+      "base_caffeine_mg": 100,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "v60",
+      "name": "V60 Pour Over",
+      "base_coffee_grams": 15,
+      "base_caffeine_mg": 80,
+      "base_sugar_grams": 0
+    },
+    {
+      "id": "kopi_susu",
+      "name": "Kopi Susu",
+      "base_coffee_grams": 20,
+      "base_caffeine_mg": 70,
+      "base_sugar_grams": 20
+    }
+  ],
+  "size_modifiers": {
+    "small": 1.0,
+    "medium": 1.5,
+    "large": 2.0
+  },
+  "sugar_modifiers": {
+    "normal": 1.0,
+    "less": 0.5,
+    "no_sugar": 0.0
+  },
+  "extra_shot": {
+    "coffee_grams": 18,
+    "caffeine_mg": 63
+  }
+}

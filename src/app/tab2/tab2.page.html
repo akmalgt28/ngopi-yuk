@@ -1,0 +1,133 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="page-top-title">
+        <ion-icon name="stats-chart"></ion-icon> Statistik
+    </div>
+
+    <div class="summary-row">
+        <div class="period-card">
+            <div class="period-label"><ion-icon name="calendar" style="margin-right: 4px; transform: translateY(1px);"></ion-icon> Mingguan</div>
+            <div class="period-stats">
+                <div class="stat">
+                    <span class="stat-value">{{ weeklySummary.totalCups }}</span>
+                    <span class="stat-label">Cup</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">{{ weeklySummary.totalCaffeine }}<small>mg</small></span>
+                    <span class="stat-label">Kafein</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">{{ weeklySummary.totalSugar }}<small>g</small></span>
+                    <span class="stat-label">Gula</span>
+                </div>
+            </div>
+            <div class="period-footer">
+                <span>{{ formatCurrency(weeklySummary.totalSpent) }}</span>
+                <span class="avg">~{{ weeklySummary.avgCupsPerDay }} cup/hari</span>
+            </div>
+        </div>
+        <div class="period-card">
+            <div class="period-label"><ion-icon name="calendar" style="margin-right: 4px; transform: translateY(1px);"></ion-icon> Bulanan</div>
+            <div class="period-stats">
+                <div class="stat">
+                    <span class="stat-value">{{ monthlySummary.totalCups }}</span>
+                    <span class="stat-label">Cup</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">{{ monthlySummary.totalCaffeine }}<small>mg</small></span>
+                    <span class="stat-label">Kafein</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">{{ monthlySummary.totalSugar }}<small>g</small></span>
+                    <span class="stat-label">Gula</span>
+                </div>
+            </div>
+            <div class="period-footer">
+                <span>{{ formatCurrency(monthlySummary.totalSpent) }}</span>
+                <span class="avg">~{{ monthlySummary.avgCupsPerDay }} cup/hari</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <h2><ion-icon name="trending-up" style="margin-right: 6px; transform: translateY(2px);"></ion-icon> Grafik Tren</h2>
+    </div>
+
+    <div class="chart-controls">
+        <ion-segment [value]="chartView" (ionChange)="onChartViewChange($event)" class="chart-segment">
+            <ion-segment-button value="caffeine">
+                <ion-label>Kafein</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="sugar">
+                <ion-label>Gula</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="spending">
+                <ion-label>Uang</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+
+        <ion-segment [value]="chartDays" (ionChange)="onChartDaysChange($event)" class="days-segment">
+            <ion-segment-button [value]="7">
+                <ion-label>7H</ion-label>
+            </ion-segment-button>
+            <ion-segment-button [value]="14">
+                <ion-label>14H</ion-label>
+            </ion-segment-button>
+            <ion-segment-button [value]="30">
+                <ion-label>30H</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div class="chart-container">
+        <canvas #chartCanvas></canvas>
+    </div>
+
+    <div class="section-header">
+        <h2><ion-icon name="document-text" style="margin-right: 6px; transform: translateY(2px);"></ion-icon> Riwayat</h2>
+        <div class="filter-wrapper" *ngIf="availableMonths.length > 0">
+            <ion-select [value]="selectedMonth" (ionChange)="onMonthChange($event)" interface="popover" placeholder="Bulan" class="month-filter" justify="space-between" fill="outline" shape="round">
+             <ion-select-option *ngFor="let m of availableMonths" [value]="m">{{ m }}</ion-select-option>   
+            </ion-select>
+        </div>
+    </div>
+
+    <div class="history-list" *ngIf="filteredEntries.length > 0">
+        <ion-list lines="none">
+            <ion-item-sliding *ngFor="let entry of filteredEntries">
+                <ion-item class="history-item">
+                    <div class="history-icon" slot="start"><ion-icon name="cafe"></ion-icon></div>
+                    <ion-label>
+                        <h3>{{ entry.coffeeTypeName }}</h3>
+                        <p>{{ formatDate(entry.date) }} · {{ formatTime(entry.timestamp) }}</p>
+                        <p class="entry-detail">
+                            <ion-icon [name]="entry.temperature === 'hot' ? 'flame' : 'snow'" style="font-size: 0.85em; transform: translateY(1.5px); margin-right: 2px;"></ion-icon> {{ entry.size | titlecase }}
+                            <span *ngIf="entry.extraShot"> · +Shot</span>
+                        </p>
+                    </ion-label>
+                    <div class="history-stats" slot="end">
+                        <ion-badge color="warning">{{ entry.caffeineMg }}mg</ion-badge>
+                        <span class="history-price">{{ formatCurrency(entry.price) }}</span>
+                    </div>
+                </ion-item>
+
+                <ion-item-options side="end">
+                    <ion-item-option color="danger" (click)="deleteEntry(entry.id)">
+                        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </div>
+
+    <div class="empty-state" *ngIf="filteredEntries.length === 0">
+        <div class="empty-icon"><ion-icon name="cafe"></ion-icon></div>
+        <p>Belum ada riwayat kopi</p>
+        <p class="empty-sub">Mulai catat kopi pertamamu di tab Home!</p>
+    </div>
+
+    <div style="height: 100px;"></div>
+</ion-content>

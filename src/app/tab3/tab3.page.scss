@@ -1,0 +1,243 @@
+ion-header {
+  box-shadow: none;
+  border: none;
+}
+
+ion-header ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-width: 0;
+  --min-height: 0;
+}
+
+.page-top-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--ion-color-secondary-very-tint);
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-top: 8px;
+    
+    ion-icon {
+        margin-right: 10px;
+        font-size: 1.6rem;
+    }
+}
+
+ion-content {
+    --background: var(--ion-background-color)
+}
+
+.settings-section {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ion-color-secondary-very-tint);
+  margin-bottom: 8px;
+
+  ion-icon {
+    font-size: 1.2rem;
+  }
+}
+
+.section-description {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--ion-color-secondary-very-tint);
+  margin-bottom: 12px;
+  padding-left: 28px;
+}
+
+.settings-card {
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--ion-card-background);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--ion-border-color-subtle);
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.setting-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .setting-emoji {
+    font-size: 1.5rem;
+  }
+
+  .setting-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .setting-hint {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    color: var(--ion-color-secondary);
+  }
+}
+
+.setting-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .number-input {
+    --background: rgba(255, 255, 255, 0.08);
+    --border-radius: 10px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    color: var(--ion-color-primary);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    width: 80px;
+    text-align: right;
+  }
+
+  .input-unit {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    color: var(--ion-color-secondary-very-tint);
+  }
+}
+
+.setting-divider {
+  height: 1px;
+  background: var(--ion-card-background);
+  margin: 8px 0;
+}
+
+.save-btn {
+  margin-top: 12px;
+  --background: var(--ion-color-primary);
+  --border-radius: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  height: 48px;
+}
+
+.data-btn {
+  --border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  height: 46px;
+  margin-bottom: 8px;
+
+  &.export {
+    --border-color: var(--ion-color-primary);
+    --color: var(--ion-color-primary);
+  }
+
+  &.import {
+    --border-color: var(--ion-color-primary);
+    --color: var(--ion-color-primary);
+  }
+
+  &.danger {
+    --color: #ff5252;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+}
+
+.app-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+
+  .app-logo {
+    margin-bottom: 8px;
+  }
+
+  .app-logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+
+  .app-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ion-color-primary);
+  }
+
+  .app-version {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ion-color-secondary);
+    margin-bottom: 8px;
+  }
+
+  .app-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ion-color-secondary-very-tint);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+}
+
+.legal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  .legal-icon {
+    font-size: 1.4rem;
+  }
+
+  .legal-text {
+    flex: 1;
+
+    .legal-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .legal-hint {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      color: var(--ion-color-secondary-very-tint);
+    }
+  }
+
+  .legal-arrow {
+    font-size: 1rem;
+    color: var(--ion-color-secondary-very-tint);
+  }
+}
