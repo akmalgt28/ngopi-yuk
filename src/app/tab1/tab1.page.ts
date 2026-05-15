@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonHeader, IonToolbar, IonTitle, IonContent,
+  IonContent,
   IonFab, IonFabButton, IonIcon,
   IonChip, IonLabel, IonButton,
   IonProgressBar
@@ -24,7 +24,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['tab1.page.scss'],
   imports: [
     CommonModule, FormsModule,
-    IonHeader, IonToolbar, IonTitle, IonContent,
+    IonContent,
     IonFab, IonFabButton, IonIcon,
     IonChip, IonLabel, IonButton,
     IonProgressBar
@@ -39,7 +39,7 @@ export class Tab1Page implements OnInit {
   };
   settings: UserSettings = { dailyCaffeineLimit: 400, dailySugarLimit: 50 };
 
-  // Calendar
+// Kalender
   currentMonth = new Date();
   calendarDays: { date: number; dateStr: string; hasEntry: boolean; isToday: boolean; isEmpty: boolean }[] = [];
   datesWithEntries = new Set<string>();
@@ -91,16 +91,13 @@ export class Tab1Page implements OnInit {
 
     this.calendarDays = [];
 
-    // Get the day of the week (Monday = 0)
     let startDay = firstDay.getDay() - 1;
     if (startDay < 0) startDay = 6;
 
-    // Empty cells before first day
     for (let i = 0; i < startDay; i++) {
       this.calendarDays.push({ date: 0, dateStr: '', hasEntry: false, isToday: false, isEmpty: true });
     }
 
-    // Days of the month
     for (let d = 1; d <= lastDay.getDate(); d++) {
       const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
       this.calendarDays.push({

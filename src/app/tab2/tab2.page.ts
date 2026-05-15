@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } fr
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonHeader, IonToolbar, IonTitle, IonContent,
+  IonContent,
   IonSegment, IonSegmentButton, IonLabel,
   IonIcon, IonList, IonItem, IonItemSliding, IonItemOptions,
   IonItemOption, IonBadge,
@@ -26,7 +26,7 @@ Chart.register(...registerables);
   styleUrls: ['tab2.page.scss'],
   imports: [
     CommonModule, FormsModule,
-    IonHeader, IonToolbar, IonTitle, IonContent,
+    IonContent,
     IonSegment, IonSegmentButton, IonLabel,
     IonIcon, IonList, IonItem, IonItemSliding, IonItemOptions,
     IonItemOption, IonBadge,

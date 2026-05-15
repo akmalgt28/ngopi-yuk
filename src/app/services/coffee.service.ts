@@ -78,7 +78,6 @@ export class CoffeeService {
     return { coffeeGrams, caffeineMg, sugarGrams };
   }
 
-  // CRUD Operations
   async addEntry(entry: CoffeeEntry): Promise<void> {
     const entries = await this.getAllEntries();
     entries.push(entry);
@@ -176,7 +175,6 @@ export class CoffeeService {
     return { labels, caffeine, sugar, spending };
   }
 
-  // Settings
   async getSettings(): Promise<UserSettings> {
     await this.ensureStorage();
     const settings = await this._storage!.get(SETTINGS_KEY);
@@ -187,7 +185,6 @@ export class CoffeeService {
     await this._storage!.set(SETTINGS_KEY, settings);
   }
 
-  // Export/Import
   async exportData(): Promise<AppData> {
     const entries = await this.getAllEntries();
     const settings = await this.getSettings();

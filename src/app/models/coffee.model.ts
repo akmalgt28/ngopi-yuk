@@ -22,8 +22,8 @@ export type Temperature = 'hot' | 'iced';
 
 export interface CoffeeEntry {
   id: string;
-  timestamp: string; // ISO date string
-  date: string; // YYYY-MM-DD format for easy grouping
+  timestamp: string;
+  date: string;
   coffeeTypeId: string;
   coffeeTypeName: string;
   temperature: Temperature;
@@ -57,8 +57,8 @@ export interface PeriodSummary {
 }
 
 export interface UserSettings {
-  dailyCaffeineLimit: number; // mg
-  dailySugarLimit: number; // grams
+  dailyCaffeineLimit: number;
+  dailySugarLimit: number;
 }
 
 export interface AppData {

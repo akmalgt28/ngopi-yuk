@@ -33,7 +33,6 @@ export class AddCupComponent implements OnInit {
   coffeeTypes: CoffeeType[] = [];
   selectedCoffeeType: CoffeeType | null = null;
 
-  // Calculated values
   calcCoffeeGrams = 0;
   calcCaffeineMg = 0;
   calcSugarGrams = 0;

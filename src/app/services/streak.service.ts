@@ -12,7 +12,6 @@ export class StreakService {
     const entries = await this.coffeeService.getAllEntries();
     if (entries.length === 0) return 0;
 
-    // Get unique dates with entries, sorted descending
     const datesWithEntries = new Set(entries.map(e => e.date));
     const sortedDates = Array.from(datesWithEntries).sort().reverse();
 
@@ -22,7 +21,6 @@ export class StreakService {
     const todayStr = today.toISOString().split('T')[0];
     const yesterdayStr = new Date(today.getTime() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
-    // Streak must include today or yesterday
     if (sortedDates[0] !== todayStr && sortedDates[0] !== yesterdayStr) {
       return 0;
     }

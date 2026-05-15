@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonHeader, IonToolbar, IonTitle, IonContent,
+  IonContent,
   IonInput, IonButton, IonIcon,
   AlertController, ToastController, IonLabel, IonItemDivider,
   ActionSheetController // TAMBAHAN: Import ActionSheet
@@ -18,7 +18,6 @@ import { CoffeeService } from '../services/coffee.service';
 import { UserSettings, AppData } from '../models/coffee.model';
 import { Subscription } from 'rxjs';
 
-// TAMBAHAN: Import Capacitor Filesystem dan Core
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { Capacitor } from '@capacitor/core';
 
@@ -28,7 +27,7 @@ import { Capacitor } from '@capacitor/core';
   styleUrls: ['tab3.page.scss'],
   imports: [IonItemDivider, IonLabel, 
     CommonModule, FormsModule,
-    IonHeader, IonToolbar, IonTitle, IonContent,
+    IonContent,
     IonInput, IonButton, IonIcon
   ],
 })
@@ -41,7 +40,7 @@ export class Tab3Page implements OnInit, OnDestroy {
     private coffeeService: CoffeeService,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
-    private actionSheetCtrl: ActionSheetController // Inject ActionSheet
+    private actionSheetCtrl: ActionSheetController
   ) {
     addIcons({
       downloadOutline, cloudUploadOutline, informationCircleOutline,
@@ -158,26 +157,22 @@ export class Tab3Page implements OnInit, OnDestroy {
     await alert.present();
   }
 
-  // --- LOGIKA IMPORT YANG DIPERBAIKI ---
   async triggerFileInput() {
     if (Capacitor.isNativePlatform()) {
       try {
-        // 1. Baca isi folder NgopiYuk
         const result = await Filesystem.readdir({
           path: 'NgopiYuk',
           directory: Directory.Documents
         });
 
-        // 2. Filter file JSON
         const files = result.files.filter(f => f.name.endsWith('.json'));
 
         if (files.length === 0) {
           this.showToast('Tidak ada file backup di folder NgopiYuk', 'warning');
-          this.openStandardPicker(); // Fallback ke picker manual
+          this.openStandardPicker();
           return;
         }
 
-        // 3. Tampilkan daftar file yang ditemukan
         const actionSheet = await this.actionSheetCtrl.create({
           header: 'Pilih File Backup di folder NgopiYuk',
           buttons: [
@@ -194,7 +189,6 @@ export class Tab3Page implements OnInit, OnDestroy {
         await actionSheet.present();
 
       } catch (err) {
-        // Jika folder belum ada, buka picker standar
         this.openStandardPicker();
       }
     } else {
@@ -202,7 +196,6 @@ export class Tab3Page implements OnInit, OnDestroy {
     }
   }
 
-  // Fungsi untuk membaca file dari folder NgopiYuk
   async readAndImportFile(fileName: string) {
     try {
       const contents = await Filesystem.readFile({
@@ -218,7 +211,6 @@ export class Tab3Page implements OnInit, OnDestroy {
     }
   }
 
-  // Picker standar (Fallback)
   openStandardPicker() {
     const input = document.createElement('input');
     input.type = 'file';
@@ -237,7 +229,6 @@ export class Tab3Page implements OnInit, OnDestroy {
     input.click();
   }
 
-  // Eksekusi Import ke Service
   async processImport(data: AppData) {
     try {
       if (!data.entries || !Array.isArray(data.entries)) {
@@ -281,6 +272,6 @@ export class Tab3Page implements OnInit, OnDestroy {
     await alert.present();
   }
 
-  openPrivacyPolicy() { window.open('https://ronekimedia.com/', '_blank'); }
-  openTerms() { window.open('https://ronekimedia.com/', '_blank'); }
+  openPrivacyPolicy() { window.open('https://ngopi-yuk.my.id/privacy-policy.php', '_blank'); }
+  openTerms() { window.open('https://ngopi-yuk.my.id/terms-of-use.php', '_blank'); }
 }
