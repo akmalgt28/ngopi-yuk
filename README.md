@@ -33,7 +33,7 @@ Ikuti langkah-langkah di bawah ini untuk menjalankan project secara lokal:
 
 **1. Clone Repositori**
 ```
-git clone [https://github.com/username-kamu/ngopi-yuk.git](https://github.com/username-kamu/ngopi-yuk.git)
+git clone https://github.com/username-kamu/ngopi-yuk.git
 cd ngopi-yuk
 ```
 **2. Install Dependensi**
