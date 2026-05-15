@@ -31,32 +31,21 @@ Aplikasi ini dibangun menggunakan:
 
 Ikuti langkah-langkah di bawah ini untuk menjalankan project secara lokal:
 
-1.  **Clone Repositori**
-    ```bash
-    git clone [https://github.com/akmalgt28/ngopi-yuk.git](https://github.com/akmalgt28/ngopi-yuk.git)
-    cd ngopi-yuk
-    
-2. **Install Dependensi**
+**1. Clone Repositori**
 ```
-Pastikan kamu sudah menginstall [Node.js](https://nodejs.org/) dan Ionic CLI.
-```bash
+git clone [https://github.com/username-kamu/ngopi-yuk.git](https://github.com/username-kamu/ngopi-yuk.git)
+cd ngopi-yuk
+```
+**2. Install Dependensi**
+Pastikan kamu sudah menginstall Node.js dan Ionic CLI.
+```
 npm install
-
-
 ```
-3.  **Jalankan Aplikasi**
+**3. Jalankan Aplikasi**
 ```
-    ```bash
-    ionic serve
-    
-
-```
-
+ionic serve
 ```
 Aplikasi akan terbuka secara otomatis di browser pada alamat `http://localhost:8100`.
-
-```
-
 ---
 
 ## 🎯 Mengapa Ngopi Yuk?
