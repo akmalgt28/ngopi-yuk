@@ -46,6 +46,7 @@ npm install
 ionic serve
 ```
 Aplikasi akan terbuka secara otomatis di browser pada alamat `http://localhost:8100`.
+
 ---
 
 ## 🎯 Mengapa Ngopi Yuk?
