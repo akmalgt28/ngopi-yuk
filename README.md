@@ -1,4 +1,4 @@
-# ☕ Ngopi Yuk - Coffee & Budget Tracker
+# ☕ Ngopi Yuk - Coffee Tracker
 
 Sering lupa sudah berapa gelas kopi hari ini? Atau kaget lihat dompet menipis karena kebanyakan nongkrong di coffee shop? **Ngopi Yuk** adalah aplikasi tracker kopi simpel yang membantu kamu memantau asupan kafein, kadar gula, hingga pengeluaran harianmu.
 
@@ -22,7 +22,7 @@ Dengan tampilan yang *clean* dan modern, Ngopi Yuk dirancang agar kamu bisa menc
 
 Aplikasi ini dibangun menggunakan:
 *   [Ionic Framework](https://ionicframework.com/)
-*   [Angular](https://angular.io/) / [React](https://reactjs.org/) / [Vue](https://vuejs.org/) (Sesuaikan dengan yang kamu pakai)
+*   [Angular](https://angular.io/)
 *   [Capacitor](https://capacitorjs.com/) (Untuk akses fitur native)
 
 ---
@@ -33,7 +33,7 @@ Ikuti langkah-langkah di bawah ini untuk menjalankan project secara lokal:
 
 1.  **Clone Repositori**
     ```bash
-    git clone [https://github.com/username-kamu/ngopi-yuk.git](https://github.com/username-kamu/ngopi-yuk.git)
+    git clone [https://github.com/akmalgt28/ngopi-yuk.git](https://github.com/akmalgt28/ngopi-yuk.git)
     cd ngopi-yuk
     
 
