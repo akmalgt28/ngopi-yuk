@@ -36,22 +36,16 @@ Ikuti langkah-langkah di bawah ini untuk menjalankan project secara lokal:
     git clone [https://github.com/akmalgt28/ngopi-yuk.git](https://github.com/akmalgt28/ngopi-yuk.git)
     cd ngopi-yuk
     
-
-```
-
 2. **Install Dependensi**
+```
 Pastikan kamu sudah menginstall [Node.js](https://nodejs.org/) dan Ionic CLI.
 ```bash
 npm install
 
 
 ```
-
-
-
-```
-
 3.  **Jalankan Aplikasi**
+```
     ```bash
     ionic serve
     
